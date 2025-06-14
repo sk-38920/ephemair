@@ -1,1 +1,850 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ephèm'Air Décoration | Décoration Ballons Grenoble | Spécialiste Événementiel</title>
+    <meta name="description" content="Ephèm'Air Décoration, spécialiste décoration ballons à Grenoble. Arches, colonnes, décorations personnalisées pour mariages, anniversaires, entreprises. Devis gratuit.">
+    <meta name="keywords" content="décoration ballons Grenoble, ballons événementiel Grenoble, arche ballons, décoration mariage Grenoble, anniversaire ballons">
+    <link rel="canonical" href="https://ephemair-decoration.fr">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Ephèm'Air Décoration - Décoration Ballons Grenoble">
+    <meta property="og:description" content="Spécialiste décoration ballons à Grenoble pour tous vos événements">
+    <meta property="og:image" content="/images/og-ephemair.jpg">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary-color: #ff6b9d;
+            --secondary-color: #4ecdc4;
+            --accent-color: #ffe66d;
+            --text-dark: #2c3e50;
+            --text-light: #7f8c8d;
+            --white: #ffffff;
+            --gradient-primary: linear-gradient(135deg, #ff6b9d 0%, #4ecdc4 100%);
+            --gradient-secondary: linear-gradient(135deg, #4ecdc4 0%, #ffe66d 100%);
+            --shadow: 0 10px 30px rgba(0,0,0,0.1);
+            --shadow-hover: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+        
+        /* Header & Navigation */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+        
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .menu a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .menu a:hover {
+            color: var(--primary-color);
+        }
+        
+        .menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-primary);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        
+        .menu a:hover::after {
+            width: 100%;
+        }
+        
+        .cta-button {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="white" opacity="0.1"/><circle cx="80" cy="30" r="3" fill="white" opacity="0.1"/><circle cx="40" cy="70" r="2" fill="white" opacity="0.1"/><circle cx="90" cy="80" r="2" fill="white" opacity="0.1"/><circle cx="10" cy="60" r="3" fill="white" opacity="0.1"/></svg>');
+            animation: float 20s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+        
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 5%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            z-index: 2;
+            position: relative;
+        }
+        
+        .hero-text h1 {
+            font-size: 3.5rem;
+            color: white;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            animation: slideInLeft 1s ease-out;
+        }
+        
+        .hero-text .subtitle {
+            font-size: 1.3rem;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 2rem;
+            animation: slideInLeft 1s ease-out 0.2s both;
+        }
+        
+        .hero-text .location {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 2rem;
+            animation: slideInLeft 1s ease-out 0.4s both;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            animation: slideInLeft 1s ease-out 0.6s both;
+        }
+        
+        .btn-primary {
+            background: white;
+            color: var(--primary-color);
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            padding: 1rem 2rem;
+            border: 2px solid white;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn-primary:hover, .btn-secondary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: slideInRight 1s ease-out;
+        }
+        
+        .balloon-animation {
+            position: relative;
+            width: 300px;
+            height: 400px;
+        }
+        
+        .balloon {
+            position: absolute;
+            border-radius: 50%;
+            animation: floatBalloon 3s ease-in-out infinite;
+        }
+        
+        .balloon:nth-child(1) {
+            width: 80px;
+            height: 100px;
+            background: var(--accent-color);
+            top: 20px;
+            left: 50px;
+            animation-delay: 0s;
+        }
+        
+        .balloon:nth-child(2) {
+            width: 60px;
+            height: 75px;
+            background: white;
+            top: 80px;
+            right: 30px;
+            animation-delay: 0.5s;
+        }
+        
+        .balloon:nth-child(3) {
+            width: 70px;
+            height: 85px;
+            background: var(--secondary-color);
+            bottom: 100px;
+            left: 20px;
+            animation-delay: 1s;
+        }
+        
+        .balloon:nth-child(4) {
+            width: 90px;
+            height: 110px;
+            background: rgba(255,255,255,0.8);
+            bottom: 50px;
+            right: 50px;
+            animation-delay: 1.5s;
+        }
+        
+        @keyframes floatBalloon {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+        
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 6rem 5%;
+            background: var(--white);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 4rem;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-primary);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+        
+        .service-card p {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+        
+        /* Specialties Section */
+        .specialties {
+            padding: 6rem 5%;
+            background: linear-gradient(135deg, #f8f9ff 0%, #fff5f5 100%);
+        }
+        
+        .specialties-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .specialty-list {
+            list-style: none;
+        }
+        
+        .specialty-item {
+            padding: 1rem;
+            margin: 1rem 0;
+            background: white;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .specialty-item:hover {
+            transform: translateX(10px);
+        }
+        
+        .specialty-item h4 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .clients-section {
+            text-align: center;
+        }
+        
+        .clients-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .client-type {
+            padding: 2rem;
+            background: white;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+        
+        .client-type:hover {
+            transform: translateY(-5px);
+        }
+        
+        .client-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 6rem 5%;
+            background: var(--gradient-primary);
+            color: white;
+        }
+        
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .contact-info h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .contact-details {
+            list-style: none;
+        }
+        
+        .contact-details li {
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .contact-form {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 1rem;
+            border: none;
+            border-radius: 10px;
+            background: rgba(255,255,255,0.9);
+            color: var(--text-dark);
+            font-size: 1rem;
+        }
+        
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--text-dark);
+            color: white;
+            padding: 3rem 5%;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-link {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            transform: translateY(-3px);
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .menu {
+                display: none;
+            }
+            
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 2rem;
+            }
+            
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .specialties-grid,
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .clients-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Scroll animations */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">Ephèm'Air Décoration</div>
+            <ul class="menu">
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#specialites">Spécialités</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a href="#contact" class="cta-button">Devis Gratuit</a>
+        </nav>
+    </header>
 
+    <!-- Hero Section -->
+    <section id="accueil" class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Décoration Ballons Grenoble</h1>
+                <p class="subtitle">Spécialiste de la décoration événementielle avec des ballons créatifs et personnalisés</p>
+                <p class="location">📍 Région de Grenoble et alentours</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn-primary">Demander un devis</a>
+                    <a href="#services" class="btn-secondary">Nos créations</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="balloon-animation">
+                    <div class="balloon"></div>
+                    <div class="balloon"></div>
+                    <div class="balloon"></div>
+                    <div class="balloon"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Nos Services de Décoration</h2>
+            <p class="section-subtitle animate-on-scroll">Des créations uniques pour tous vos événements</p>
+            
+            <div class="services-grid">
+                <div class="service-card animate-on-scroll">
+                    <div class="service-icon">🎈</div>
+                    <h3>Arches en Ballons</h3>
+                    <p>Arches spectaculaires pour entrées, photos et espaces événementiels. Designs personnalisés selon vos couleurs et thème.</p>
+                </div>
+                
+                <div class="service-card animate-on-scroll">
+                    <div class="service-icon">📸</div>
+                    <h3>Cadres Photo</h3>
+                    <p>Cadres décoratifs en ballons pour vos séances photos mémorables. Parfait pour mariages et anniversaires.</p>
+                </div>
+                
+                <div class="service-card animate-on-scroll">
+                    <div class="service-icon">🌟</div>
+                    <h3>Colonnes Organiques</h3>
+                    <p>Colonnes artistiques et modernes pour sublimer vos espaces intérieurs et extérieurs.</p>
+                </div>
+                
+                <div class="service-card animate-on-scroll">
+                    <div class="service-icon">🎭</div>
+                    <h3>Décorations Thématiques</h3>
+                    <p>Créations spécialisées pour Halloween, Saint-Valentin, Noël et toutes occasions spéciales.</p>
+                </div>
+                
+                <div class="service-card animate-on-scroll">
+                    <div class="service-icon">🏪</div>
+                    <h3>Décoration Commerciale</h3>
+                    <p>Habillage de magasins, restaurants et espaces professionnels pour attirer et enchanter vos clients.</p>
+                </div>
+                
+                <div class="service-card animate-on-scroll">
+                    <div class="service-icon">✨</div>
+                    <h3>Créations Personnalisées</h3>
+                    <p>Conceptions sur-mesure selon vos envies et besoins spécifiques. Laissez libre cours à votre imagination !</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Specialties Section -->
+    <section id="specialites" class="specialties">
+        <div class="container">
+            <div class="specialties-grid">
+                <div class="animate-on-scroll">
+                    <h2 class="section-title">Nos Spécialités</h2>
+                    <ul class="specialty-list">
+                        <li class="specialty-item">
+                            <h4>Mariages</h4>
+                            <p>Décorations romantiques et élégantes pour votre jour J</p>
+                        </li>
+                        <li class="specialty-item">
+                            <h4>Anniversaires</h4>
+                            <p>Ambiances festives pour tous les âges et tous les thèmes</p>
+                        </li>
+                        <li class="specialty-item">
+                            <h4>Baby Showers</h4>
+                            <p>Décorations douces et colorées pour célébrer l'arrivée de bébé</p>
+                        </li>
+                        <li class="specialty-item">
+                            <h4>Bar/Bat Mitzvah</h4>
+                            <p>Créations respectueuses des traditions et personnalisées</p>
+                        </li>
+                        <li class="specialty-item">
+                            <h4>Événements d'Entreprise</h4>
+                            <p>Décors professionnels pour conférences, inaugurations, soirées</p>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="clients-section animate-on-scroll">
+                    <h2 class="section-title">Nos Clients</h2>
+                    <div class="clients-grid">
+                        <div class="client-type">
+                            <div class="client-icon">👥</div>
+                            <h3>Particuliers</h3>
+                            <p>Familles, couples, organisateurs d'événements privés</p>
+                        </div>
+                        <div class="client-type">
+                            <div class="client-icon">🏢</div>
+                            <h3>Professionnels</h3>
+                            <p>Entreprises, magasins, restaurants, hôtels</p>
+                        </div>
+                        <div class="client-type">
+                            <div class="client-icon">🏛️</div>
+                            <h3>Collectivités</h3>
+                            <p>Mairies, écoles, centres culturels</p>
+                        </div>
+                        <div class="client-type">
+                            <div class="client-icon">🤝</div>
+                            <h3>Associations</h3>
+                            <p>Clubs, associations caritatives, événements communautaires</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-info animate-on-scroll">
+                    <h2>Contactez-Nous</h2>
+                    <p>Prêt à donner vie à vos projets ? Demandez votre devis gratuit !</p>
+                    
+                    <ul class="contact-details">
+                        <li>
+                            <span>📍</span>
+                            <div>
+                                <strong>Zone d'intervention</strong><br>
+                                Grenoble et région Rhône-Alpes
+                            </div>
+                        </li>
+                        <li>
+                            <span>📞</span>
+                            <div>
+                                <strong>Téléphone</strong><br>
+                                <a href="tel:+33123456789" style="color: white;">01 23 45 67 89</a>
+                            </div>
+                        </li>
+                        <li>
+                            <span>✉️</span>
+                            <div>
+                                <strong>Email</strong><br>
+                                <a href="mailto:contact@ephemair-decoration.fr" style="color: white;">contact@ephemair-decoration.fr</a>
+                            </div>
+                        </li>
+                        <li>
+                            <span>⏰</span>
+                            <div>
+                                <strong>Disponibilité</strong><br>
+                                7j/7 pour vos événements
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <form class="contact-form animate-on-scroll" id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Nom complet *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Téléphone</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="event-type">Type d'événement</label>
+                        <select id="event-type" name="event-type">
+                            <option value="">Sélectionnez...</option>
+                            <option value="mariage">Mariage</option>
+                            <option value="anniversaire">Anniversaire</option>
+                            <option value="baby-shower">Baby Shower</option>
+                            <option value="entreprise">Événement d'entreprise</option>
+                            <option value="bar-mitzvah">Bar/Bat Mitzvah</option>
+                            <option value="commercial">Décoration commerciale</option>
+                            <option value="autre">Autre</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Décrivez votre projet *</label>
+                        <textarea id="message" name="message" placeholder="Décrivez votre événement, vos idées de décoration, la date, le lieu..." required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn-primary" style="width: 100%;">
+                        Demander mon devis gratuit
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Ephèm'Air Décoration</h3>
+                <p>Votre spécialiste en décoration ballons à Grenoble</p>
+                <div class="social-links">
+                    <a href="#" class="social-link">📘</a>
+                    <a href="#" class="social-link">📷</a>
+                    <a href="#" class="social-link">🐦</a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Services</h3>
+                <p>• Arches en ballons<br>
+                • Décorations personnalisées<br>
+                • Événements privés & professionnels<br>
+                • Créations thématiques</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Zone d'intervention</h3>
+                <p>• Grenoble<br>
+                • Isère (38)<br>
+                • Rhône-Alpes<br>
+                • Sur devis pour autres régions</p>
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 2rem; padding-top: 2rem; border-top:
